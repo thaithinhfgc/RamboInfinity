@@ -107,6 +107,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             myBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            myBody.velocity = Vector3.ClampMagnitude(myBody.velocity, jumpForce);
+
             isGround = false;
             JumpSound.Play();
         }
