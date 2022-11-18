@@ -14,6 +14,7 @@ TagManager:
   - Grenade
   - End
   - ExtraLife
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Enemy Bullet
   - Player Bullet
   - Grenade
-  - 
-  - 
+  - Ground
+  - Weapon
   - 
   - 
   - 
@@ -68,4 +69,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 370718359
+    locked: 0
+  - name: Shelter
+    uniqueID: 3283675459
     locked: 0

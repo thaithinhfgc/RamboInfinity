@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     public Image[] lifes;
     public Sprite life;
     public RectTransform fader;
-
+    private RaycastHit2D hit;
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -261,7 +261,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet") && !tookDamage)
+        if (other.CompareTag("Bullet") && !tookDamage )
         {
             StartCoroutine(TookDamage(1));
         }

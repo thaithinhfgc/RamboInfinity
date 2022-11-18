@@ -9,13 +9,20 @@ public class Bullet : MonoBehaviour
     private string IMPACT_ANIMATION = "Impact";
     private Animator anim;
     private bool shouldMove = true;
+    private Katana katana;
+    public bool isPlayerBullet;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-    }
 
+    }
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        katana = FindObjectOfType<Katana>();
+        isPlayerBullet = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,19 +30,25 @@ public class Bullet : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-        Destroy(gameObject, destroyTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy") && isPlayerBullet)
         {
             anim.SetTrigger(IMPACT_ANIMATION);
             transform.Translate(new Vector3(0, 0, 0));
             shouldMove = false;
             Destroy(gameObject, 0.5f);
         }
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") && isPlayerBullet)
+        {
+            anim.SetTrigger(IMPACT_ANIMATION);
+            transform.Translate(new Vector3(0, 0, 0));
+            shouldMove = false;
+            Destroy(gameObject, 0.5f);
+        }
+        if (collision.gameObject.CompareTag("Player") && !collision.GetComponent<Katana>().isDash && !isPlayerBullet)
         {
             anim.SetTrigger(IMPACT_ANIMATION);
             transform.Translate(new Vector3(0, 0, 0));
