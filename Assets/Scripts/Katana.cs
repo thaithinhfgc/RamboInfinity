@@ -312,7 +312,7 @@ public class Katana : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet") && !tookDamage && !GetComponent<KatanaKombat>().isAttack)
+        if (other.CompareTag("Bullet") && !tookDamage && !GetComponent<KatanaKombat>().isAttack && !isDash)
         {
             StartCoroutine(TookDamage(1));
         }

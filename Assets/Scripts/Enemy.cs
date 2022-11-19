@@ -91,6 +91,12 @@ public class Enemy : MonoBehaviour
             {
                 tempBullet.transform.eulerAngles = new Vector3(0, 0, 180);
             }
+
+            readyToFire = false;
+            Invoke(nameof(ResetFire), reloadCooldown);
+        }
+        if (isAggro)
+        {
             if (targetDistance < 0)
             {
                 if (!facingRight)
@@ -105,13 +111,7 @@ public class Enemy : MonoBehaviour
                     Flip();
                 }
             }
-            readyToFire = false;
-            Invoke(nameof(ResetFire), reloadCooldown);
         }
-        else
-        {
-        }
-
     }
 
     void EnemyMove()

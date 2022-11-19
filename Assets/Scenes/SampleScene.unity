@@ -74012,6 +74012,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 60bb74a74196829499592ff12c35b920, type: 3}
     - target: {fileID: 1051954111498190444, guid: 0dd374fcee56c4b4cbab48ca10907668, type: 3}
+      propertyPath: numOfLife
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051954111498190444, guid: 0dd374fcee56c4b4cbab48ca10907668, type: 3}
       propertyPath: timeScale
       value: 1
       objectReference: {fileID: 0}
